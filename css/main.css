@@ -293,6 +293,7 @@ header .navbar {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin-bottom: 30px;
+    overflow: hidden;
 }
 .serv i {
     grid-column: span 1;
@@ -461,6 +462,35 @@ header .navbar {
 }
 /* End Contact */
 
+/* Scroll to Top */
+
+.scroll-top {
+    color: var(--main-color);
+    background-color: transparent;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--main-color);
+    border-radius: 50%;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.3s;
+}
+.scroll-top:hover {
+    background-color: var(--main-color);
+    color: #fff;
+    transition: 0.3s;
+    box-shadow:  0 0 5px #fff;
+}
+.scroll-top:hover i {
+    animation: jumpTop 0.3s;
+}
+
 /* Start Footer */
 
 .footer {
@@ -476,4 +506,22 @@ header .navbar {
     font-weight: bold;
     color: var(--main-color);
 }
-/* End Footer */ 
+/* End Footer */
+
+/* Start Animation */
+
+@keyframes jumpTop {
+    50% {
+        transform: translateY(-100%);
+    }
+    90% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* End Animation */
