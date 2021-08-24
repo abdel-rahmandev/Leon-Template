@@ -13,7 +13,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth;
+}
 body {
     font-family: 'Work Sans', sans-serif;
 }
@@ -24,6 +26,9 @@ h3 {
 p {
     color: #555;
     line-height: 1.5;
+}
+i {
+    transition: 0.3s;
 }
 .container {
     padding: 0 auto;
@@ -81,7 +86,11 @@ p {
 /* Start Header */
 
 header {
-    padding: 20px;
+    padding: 10px 20px;
+    position: fixed;
+    z-index: 1;
+    background: #fff;
+    width: 100%;
 }
 header .container {
     display: flex;
@@ -162,11 +171,18 @@ header .navbar {
 
 .landing {
     background-image: url(../images/landing.jpg);
-    background-size: cover;
+    background-size: 100% 100%;
+    background-attachment: fixed;
     width: 100%;
-    height: calc(100vh - 72px);
+    height: calc(100vh - 52px);
     position: relative;
+    top: 52px;
     text-align: center;
+}
+@media (max-width: 767px) {
+    .landing {
+        background-size:  auto 100%;
+    }
 }
 .landing .intro-content {
     display: flex;
@@ -176,8 +192,7 @@ header .navbar {
     align-items: center;
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 40%);
     min-width: 320px;
     max-width: 100%;
 }
@@ -195,6 +210,7 @@ header .navbar {
 /* start Features */
 .features {
     padding: var(--sec-pad) 0;
+    margin-top: 52px;
 }
 .features .container {
     display: grid;
@@ -210,7 +226,11 @@ header .navbar {
 .feat i {
     color: var(--main-color);
     font-size: 50px;
-
+}
+.feat:hover i {
+    color: var(--second-color);
+    transform: rotate(15deg);
+    transition: 0.3s;
 }
 .feat h3 {
     font-weight: 800;
@@ -255,7 +275,11 @@ header .navbar {
     top: -50px;
     right: -50px;
     z-index: -1;
-
+    transition: 0.4s;
+}
+.col .image:hover::before {
+    width: 100%;
+    transition: 0.4s;
 }
 @media (max-width: 1199px) {
     .col .image {
@@ -263,8 +287,7 @@ header .navbar {
     }
 }
 .col img {
-    max-width: 300px;
-    box-shadow: 0px 0px 0px 1px #fff;
+    max-width: 250px;
 }
 .serv {
     display: grid;
@@ -277,6 +300,11 @@ header .navbar {
     margin-bottom: 30px;
     color: var(--main-color);
     padding: 5px;
+}
+.serv:hover i {
+    color: var(--second-color);
+    transform: translate(15px);
+    transition: 0.3s;
 }
 .serv .content {
     grid-column: span 3;
@@ -311,7 +339,12 @@ header .navbar {
     }
     .proj img {
         width: 100%;
-    }
+        transition: 0.3s;
+}
+.proj img:hover {
+    opacity: 0.6;
+    transition: 0.3s;
+}
     .proj h3, .proj p {
         margin: 20px 0;
         padding: 0 20px;
@@ -324,7 +357,7 @@ header .navbar {
     }
 .about-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     margin-top: 100px;
 }
 
@@ -334,14 +367,19 @@ header .navbar {
 }
 .about-container .image::before {
     content: "";
-    border-bottom: 80px solid var(--main-color);
-    border-left: 80px solid var(--main-color);
-    width: 100px;
-    height: 250px;
     position: absolute;
-    right: -135px;
-    top: -35px;
+    width: 100px;
+    height: calc(100% + 100px);
+    background-color: var(--main-color);
+    top: -50px;
+    left: -50px;
     z-index: -1;
+    transition: 0.4s;
+
+}
+.about-container .image:hover::before {
+    width: calc(100% + 100px);
+    transition: 0.4s;
 }
 .about-container .image img {
     width: 100%;
@@ -349,7 +387,7 @@ header .navbar {
 }
 
 .about-container .about-content {
-    width: 55%;
+    width: 60%;
 }
 .about-container .about-content p:first-of-type {
      font-weight: bold;
@@ -404,11 +442,23 @@ header .navbar {
     text-decoration: none;
     display: block;
 }
+.contact-info .email:hover {
+    color: var(--second-color);
+}
+.contact-info .social {
+    font-size: 20px;
+    margin-top: 20px;
+}
 .contact-info .social i {
     color: var(--second-color);
     margin-left: 5px;
+    transition: 0.5s;
 }
-
+.contact-info .social i:hover {
+    color: var(--main-color);
+    transform: rotate(360deg);
+    transition: 0.5s;
+}
 /* End Contact */
 
 /* Start Footer */
