@@ -1,5 +1,7 @@
 /* Start Variables */
-
+:root {
+    --mainColor: #10cab7;
+}
 /* End Variables */
 
 /* Start Global Rules */
@@ -52,10 +54,11 @@ header .container {
     align-items: center;
 }
 header .logo {
-    width: 90px;
+    width: 70px;
 }
 header .navbar {
     position: relative;
+    z-index: 1;
 }
 
 .nav-icon {
@@ -100,7 +103,6 @@ header .navbar {
 }
 .nav-list li {
     width: 100%;
-    padding: 20px;
     transition: 0.3s;
 }
 .nav-list li:not(:last-child) {
@@ -114,6 +116,45 @@ header .navbar {
     color: #333;
     display: block;
     width: 100%;
+    padding: 20px;
 } 
-
+.nav-list li a:hover {
+    color: var(--mainColor);
+}
 /* End Header */
+
+/* Start Landing */
+
+.landing {
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    width: 100%;
+    height: calc(100vh - 72px);
+    position: relative;
+    text-align: center;
+}
+.landing .intro-content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 320px;
+    max-width: 100%;
+}
+.landing h2 {
+    margin: 0;
+    font-size: 50px;
+    font-weight: bold;
+    color: var(--mainColor);
+}
+.landing p {
+    line-height: 2;
+    font-size: 20px;
+    color: #555;
+}
+/* End Landing */ 
