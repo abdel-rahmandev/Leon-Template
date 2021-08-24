@@ -380,3 +380,50 @@ header .navbar {
     }
 }
 /* End About */
+
+/* Start Contact */
+
+.contact {
+    padding: var(--sec-pad) 0;
+    margin-bottom: var(--sec-pad);
+    }
+.contact-info {
+    text-align: center;
+}
+.contact-info p {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 800;
+    color: var(--second-color);
+}
+.contact-info .email {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-weight: 800;
+    color: var(--main-color);
+    text-decoration: none;
+    display: block;
+}
+.contact-info .social i {
+    color: var(--second-color);
+    margin-left: 5px;
+}
+
+/* End Contact */
+
+/* Start Footer */
+
+.footer {
+    text-align: center;
+    background: var(--second-color);
+    padding: 30px 0;
+}
+.footer .copy {
+    color: #fff;
+    font-size: 20px;
+}
+.footer .copy span {
+    font-weight: bold;
+    color: var(--main-color);
+}
+/* End Footer */ 
