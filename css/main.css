@@ -1,9 +1,9 @@
 /* Start Variables */
 :root {
-    --mainColor: #10cab7;
+    --main-color: #10cab7;
+    --second-color: #2c4755;
+    --bg-color: #f6f6f6;
     --sec-pad: 50px;
-    --bg1: #f6f6f6;
-    --bg2: #f3f3f3;
 }
 /* End Variables */
 
@@ -17,11 +17,43 @@
 body {
     font-family: 'Work Sans', sans-serif;
 }
+h3 {
+    color: #1f2021;
+}
+
+p {
+    color: #555;
+    line-height: 1.5;
+}
 .container {
     padding: 0 auto;
     margin: 0 auto;
 }
 /* End Global Rules */ 
+
+/* Start Components */
+
+.special-heading {
+    margin: 0;
+    font-size: 100px;
+    color: #ebeced;
+    text-align: center;
+}
+.special-heading + p {
+    margin-top: -35px;
+    font-size: 25px;
+    text-align: center;
+}
+@media (max-width: 767px) {
+    .special-heading {
+        font-size: 70px;
+    }
+    .special-heading + p {
+        margin-top: -25px;
+        font-size: 16px;
+    }
+}
+/* End Components */
 
 /* Media Query Start */
 
@@ -50,7 +82,6 @@ body {
 
 header {
     padding: 20px;
-    background-color: var(--bg1);
 }
 header .container {
     display: flex;
@@ -85,7 +116,7 @@ header .navbar {
     width: 100%;
 }
 .nav-list {
-    background-color: var(--bg2);
+    background-color: var(--bg-color);
     min-width: 200px;
     list-style: none;
     position: absolute;
@@ -100,7 +131,7 @@ header .navbar {
 .nav-list::before {
     content: "";
     border: 15px solid;
-    border-color: transparent transparent var(--bg2);
+    border-color: transparent transparent var(--bg-color);
     position: absolute;
     top: -30px;
     right: 0;
@@ -123,7 +154,7 @@ header .navbar {
     padding: 20px;
 } 
 .nav-list li a:hover {
-    color: var(--mainColor);
+    color: var(--main-color);
 }
 /* End Header */
 
@@ -154,19 +185,16 @@ header .navbar {
     margin: 0;
     font-size: 50px;
     font-weight: bold;
-    color: var(--mainColor);
+    color: var(--main-color);
 }
 .landing p {
-    line-height: 2;
     font-size: 20px;
-    color: #555;
 }
 /* End Landing */ 
 
 /* start Features */
 .features {
     padding: var(--sec-pad) 0;
-    background-color: var(--bg1);
 }
 .features .container {
     display: grid;
@@ -181,7 +209,7 @@ header .navbar {
     box-shadow: 0 0 5px 1px #ddd;
 }
 .feat i {
-    color: var(--mainColor);
+    color: var(--main-color);
     font-size: 50px;
 
 }
@@ -189,7 +217,82 @@ header .navbar {
     font-weight: 800;
     margin: 30px 0;
 }
-.feat p {
-    line-height: 2;
-}
 /* End Features */ 
+
+/* Start Services */
+
+.services {
+    padding: var(--sec-pad) 0;
+}
+.services .container {
+    margin: 0 auto;
+}
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 100px;
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .services-container {
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
+    }
+}
+.col {
+    margin: 0 10px;
+}
+.col .image {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    height: 92%;
+
+}
+
+
+.col .image::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: calc(100% + 100px);
+    background-color: var(--second-color);
+    top: -50px;
+    right: -50px;
+    z-index: -1;
+
+}
+@media (max-width: 1199px) {
+    .col .image {
+        display: none;
+    }
+}
+.col img {
+    max-width: 300px;
+    box-shadow: 0px 0px 0px 1px #fff;
+}
+.serv {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 30px;
+}
+.serv i {
+    grid-column: span 1;
+    font-size: 35px;
+    margin-bottom: 30px;
+    color: var(--main-color);
+    padding: 5px;
+}
+.serv .content {
+    grid-column: span 3;
+}
+@media (max-width: 767px) {
+    .serv i, .serv .content {
+        grid-column: span 4;
+        text-align: center;
+    }
+
+}
+.serv .content h3 {
+    margin: 0 0 25px;
+}
+/* End Services */ 
